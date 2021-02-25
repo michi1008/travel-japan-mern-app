@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API = axios.create({ baseURL: 'http://ec2-54-215-249-19.us-west-1.compute.amazonaws.com:8080/'})
+const API = axios.create({ baseURL: 'https://michi1008-travel-japan-mern-app-4889.zeet.app/'})
 
 // to make middleware to work:
 API.interceptors.request.use((req) => {
