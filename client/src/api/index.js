@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API = axios.create({ baseURL: 'https://agile-island-05497.herokuapp.com/auth'})
+const API = axios.create();
 
 // to make middleware to work:
 API.interceptors.request.use((req) => {
