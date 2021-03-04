@@ -8,7 +8,7 @@ import postRoutes from './routes/posts.js';
 import userRoutes from './routes/users.js';
 
 // set up server
-dotenv.config()
+dotenv.config({path:path.resolve('.env')})
 const app = express();
 const PORT = process.env.PORT || 5000;
 // Define middleware
@@ -20,10 +20,7 @@ app.options('*', cors());
 app.use('/posts', postRoutes);
 app.use('/users', userRoutes);
 
-app.use(express.static('client/build'));
-app.get('*', (req, res) => {
-res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-});
+
 
 //connnect to mongoDB
 

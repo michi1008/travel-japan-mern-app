@@ -31,7 +31,7 @@ const Auth = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
+    console.log(form)
     if (isSignup) {
       dispatch(signup(form, history))
     } else {
@@ -39,6 +39,7 @@ const Auth = () => {
     }
     
   }
+  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
   const googleSuccess = async (res) => {
     const result = res?.profileObj
@@ -55,8 +56,7 @@ const Auth = () => {
 
   const googleError = () => alert('Google Sign In was unsuccessful. Try again later')
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
-
+  
   return (
     <Container component="main" maxWidth="xs">
       <Paper className={classes.paper} elevation={3}>
