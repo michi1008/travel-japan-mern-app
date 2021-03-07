@@ -2,13 +2,10 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import dotenv from 'dotenv';
-import path from 'path';
 import postRoutes from './routes/posts.js';
 import userRoutes from './routes/users.js';
+import config from './environment.js';
 
-// set up server
-dotenv.config()
 const app = express();
 const PORT = process.env.PORT || 5000;
 // Define middleware
@@ -27,7 +24,7 @@ res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 
 //connnect to mongoDB
 
-mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
+mongoose.connect(config.mongoDB.url, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
   .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:${PORT}`)))
   .catch((error) => console.log(`${error} did not connect`));
 
