@@ -1,9 +1,9 @@
 import bcrypt from "bcrypt"
 import jwt from 'jsonwebtoken'
 import User from '../models/user.js'
+import config from '../environment.js'
 
-const secret = process.env.JWT_SECRET;
-
+const secret = config.jwtSecret;
 export const signin = async (req, res) => {
   const { email, password } = req.body
 
@@ -20,6 +20,7 @@ export const signin = async (req, res) => {
     
     res.status(200).json({ result: existingUser, token })
   } catch (err) {
+    console.log(err)
     res.status(500).json({ message: "Something went wrong" })
   }
 }
