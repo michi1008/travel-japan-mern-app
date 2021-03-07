@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API = axios.create({baseURL: 'http://localhost:5000'});
+const API = axios.create();
 
 // to make middleware to work:
 API.interceptors.request.use((req) => {
