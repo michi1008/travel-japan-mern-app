@@ -22,7 +22,7 @@ app.use('/users', userRoutes);
 
 
 //connnect to mongoDB
-
+console.log('Connecting to MongoDB: ' + config.mongoDB.url);
 mongoose.connect(config.mongoDB.url, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
   .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:${PORT}`)))
   .catch((error) => console.log(`${error} did not connect`));
